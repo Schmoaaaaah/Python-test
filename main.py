@@ -69,8 +69,6 @@ def RGBtoCMYK():
     print("Der CMYK Code für "+farbe+" ist: "+str(cmyk))
   
   def rgbtocmyk(rgb,farbe):
-    RGB_SCALE = 255
-    CMYK_SCALE = 100
     r = int(rgb[0])
     g = int(rgb[1])
     b = int(rgb[2])
