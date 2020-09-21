@@ -60,21 +60,36 @@ def Schmeicheln():
   menue()
 
 def RGBtoCMYK():
-  def rgbinput():
-  farbe = input("Welche Farbe(C,M,Y,K).")
-  rgbcode = input("Geben sie die RGB Farbcodes ein(Komma getrennt(R,G,B)).")
-  farbcodes = []
-  farbcodes.extend(rgbcode.split(","))
-  cmyk = rgbtocmyk(rgbcode,farbe)
-  print("Der CMYK Code ist: "+str(cmyk))
+  def inputrgb():
+    farbe = input("Welche Farbe(C,M,Y,K).")
+    rgbcode = input("Geben sie die RGB Farbcodes ein(Komma getrennt(R,G,B)).")
+    farbcodes = []
+    farbcodes.extend(rgbcode.split(","))
+    cmyk = rgbtocmyk(farbcodes,farbe)
+    print("Der CMYK Code für "+farbe+" ist: "+str(cmyk))
   
   def rgbtocmyk(rgb,farbe):
+    RGB_SCALE = 255
+    CMYK_SCALE = 100
+    r = int(rgb[0])
+    g = int(rgb[1])
+    b = int(rgb[2])
+    c = 1 - r / RGB_SCALE
+    m = 1 - g / RGB_SCALE
+    y = 1 - b / RGB_SCALE
+    w = max(r/255, g/255, b/255)
     if(farbe == "K"):
-      
+      cmyk=1-w
+    elif(farbe == "C"):
+      cmyk=(w-(r/255))/w
+    elif(farbe == "M"):
+      cmyk=(w-(g/255))/w
+    elif(farbe== "Y"):
+      cmyk=(w-(b/255))/w
     else:
-      cmyk=0
+      print("Fehler in Rechnung.")
     return cmyk
   
-  rgbinput()
+  inputrgb()
 
 RGBtoCMYK()
