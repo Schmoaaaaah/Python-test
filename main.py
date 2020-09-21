@@ -74,9 +74,6 @@ def RGBtoCMYK():
     r = int(rgb[0])
     g = int(rgb[1])
     b = int(rgb[2])
-    c = 1 - r / RGB_SCALE
-    m = 1 - g / RGB_SCALE
-    y = 1 - b / RGB_SCALE
     w = max(r/255, g/255, b/255)
     if(farbe == "K"):
       cmyk=1-w
