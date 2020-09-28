@@ -87,4 +87,22 @@ def RGBtoCMYK():
   
   inputrgb()
 
-RGBtoCMYK()
+def zahleninput():
+  zahlen = []
+  zahl = input("Geben Sie drei Zahlen durch Komma getrent ein(1,2,3).")
+  zahlen.extend(zahl.split(","))
+  ergebnis = zahlensortieren(zahlen)
+  print("Die größte Zahl ist: "+str(ergebnis)+".")
+  
+def zahlensortieren(zahl):
+  zahlen = [int(i) for i in zahl]
+  if(zahlen[0]>zahlen[1] and zahlen[0]>zahlen[2]):
+    return zahlen[0]
+  elif(zahlen[1]>zahlen[0] and zahlen[1]>zahlen[2]):
+    return zahlen[1]
+  elif(zahlen[2]>zahlen[0] and zahlen[2]>zahlen[1]):
+    return zahlen[2]
+  else:
+    print("Einige Zahlen waren gleich und konnten somit nicht bestimmt werden")
+  
+zahleninput()
