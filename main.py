@@ -104,5 +104,24 @@ def zahlensortieren(zahl):
     return zahlen[2]
   else:
     print("Einige Zahlen waren gleich und konnten somit nicht bestimmt werden")
+
+def summeberechnen():
+  def eingabe():
+    first = input("Geben sie die Anfangszahl ein")
+    end = input("Geben sie die letze Zahl ein")
+    print("Sie beginnen mit "+first+" und enden mit "+end+".")
+    summe = rechnung(int(first),int(end)+1)
+    print("Die Summe ist: "+str(summe))
+
+
+  def rechnung(first,end):
+    summe = first
+    for i in range(first,end):
+      summe = summe + i
+    print("count: "+str(i))
+    return summe;
+  eingabe()
   
-zahleninput()
+def test():
+  print("test")
+test()
