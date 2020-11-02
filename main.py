@@ -121,7 +121,18 @@ def summeberechnen():
     print("count: "+str(i))
     return summe;
   eingabe()
+
+def dominosteine():
+  end = 7
+  start = 0
+  space = "      "
+  for i in range(start,end):
+    print(i*space,end="")
+    for y in range(i,end):
+      print("("+str(i)+"|"+str(y)+")",end =",")
+    print("")
   
 def test():
   print("test")
-test()
+
+dominosteine()
