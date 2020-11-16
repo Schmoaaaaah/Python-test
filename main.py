@@ -122,17 +122,31 @@ def summeberechnen():
     return summe;
   eingabe()
 
-def dominosteine():
-  end = 7
-  start = 0
-  space = "      "
-  for i in range(start,end):
-    print(i*space,end="")
-    for y in range(i,end):
-      print("("+str(i)+"|"+str(y)+")",end =",")
-    print("")
+def domino():
+  def dynamic():
+    last = input("Bis wo sollen die Zahlen gehen? :")
+    seperator = input("Wo durch sollen die Zahlen getrennt werden? :")
+    dominosteine(last,seperator)
+
+  def dominosteine(last,seperator):
+    start = 0
+    space = (len(last)+len(seperator)+4)*" "
+    if(int(last)>=1):
+      for i in range(start,int(last)+1):
+        print(i*space,end = "")
+        for y in range(i,int(last)+1):
+          print("("+str(i)+"|"+str(y)+")",end = seperator)
+        print("")
+    else:
+      print("Die Zahl ist zu klein!")
+      dynamic()
+
+  dynamic()
   
 def test():
-  print("test")
+  import random
+  lul = ["Hallo","Test"]
+  lul = lul.add("bro")
+  print(random.uniform(0,10))
 
-dominosteine()
+test()
